@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name | EEE Student & Research Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8fafc;
+            color: #263445;
+            line-height: 1.7;
+        }
+
+        :root {
+            --navy: #142d4e;
+            --blue: #2864a5;
+            --light: #eaf1f8;
+            --white: #ffffff;
+        }
+
+        /* Navigation */
+
+        nav {
+            background: var(--white);
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: var(--navy);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34465a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        /* Hero Section */
+
+        .hero {
+            min-height: 570px;
+            padding: 75px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(120deg, #edf4fb, #ffffff);
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .hero-text h3 {
+            color: var(--blue);
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            color: #536477;
+            margin-bottom: 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 23px;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--blue);
+            border: 1.5px solid var(--blue);
+        }
+
+        .profile-container {
+            flex-shrink: 0;
+        }
+
+        .profile-container img {
+            width: 290px;
+            height: 340px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 18px;
+            border: 7px solid white;
+            box-shadow: 0 10px 35px rgba(20,45,78,0.15);
+        }
+
+        /* Common Sections */
+
+        section {
+            padding: 70px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 3px;
+            background: var(--blue);
+            margin: 10px auto;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #536477;
+            font-size: 16px;
+        }
+
+        /* Cards */
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+            border: 1px solid #edf0f4;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: var(--light);
+            color: var(--blue);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* Skills */
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .skill {
+            background: white;
+            border: 1px solid #dce6f0;
+            padding: 12px 23px;
+            border-radius: 7px;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Contact */
+
+        .contact {
+            text-align: center;
+            background: var(--light);
+        }
+
+        .contact p {
+            margin-bottom: 12px;
+            color: #536477;
+        }
+
+        .contact a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            background: var(--navy);
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+
+        @media (max-width: 850px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 55px 7%;
+            }
+
+            .hero-text h1 {
+                font-size: 34px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-container img {
+                width: 230px;
+                height: 270px;
+            }
+
+            section {
+                padding: 55px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">My Portfolio</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h3>Hello, I'm</h3>
+
+            <h1>Your Name</h1>
+
+            <h3>Electrical and Electronic Engineering Student</h3>
+
+            <p>
+                An undergraduate EEE student interested in
+                computational materials science, Density Functional
+                Theory (DFT), and emerging technologies.
+                Passionate about learning, research, and innovation.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn">Explore More</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+
+        </div>
+
+        <!-- YOUR PROFILE PICTURE -->
+        <div class="profile-container">
+            <img src="profile.jpg"
+                 alt="My Profile Picture">
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+
+            <p>
+                I am an undergraduate student of Electrical and
+                Electronic Engineering (EEE) at Jamalpur Science
+                and Technology University, Bangladesh.
+
+                My academic journey has developed my interest in
+                engineering fundamentals, computational methods,
+                and scientific research.
+
+                I am currently exploring Density Functional Theory
+                (DFT) and computational materials science while
+                developing my programming and research skills.
+
+                I believe in continuous learning, dedication,
+                and contributing to meaningful research.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+
+        <h2 class="section-title">Education</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>B.Sc. in Electrical and Electronic Engineering</h3>
+
+                <p>
+                    Jamalpur Science and Technology University (JSTU)
+                    <br>
+                    Bangladesh
+                    <br>
+                    Academic Session: 2022–2023
+                </p>
+
+                <span class="tag">Undergraduate</span>
+            </div>
+
+            <div class="card">
+                <h3>Academic Performance</h3>
+
+                <p>
+                    Current CGPA: Add your latest verified CGPA
+                </p>
+
+                <span class="tag">Academic Record</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skill-list">
+
+            <div class="skill">MATLAB</div>
+            <div class="skill">Simulink</div>
+            <div class="skill">Python (Basic)</div>
+            <div class="skill">C Programming</div>
+            <div class="skill">Machine Learning (Beginner)</div>
+
+        </div>
+
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+
+        <h2 class="section-title">Research Interests</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Density Functional Theory (DFT)</h3>
+
+                <p>
+                    Interested in understanding the electronic
+                    structure and properties of materials through
+                    first-principles computational methods.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Computational Materials Science</h3>
+
+                <p>
+                    Exploring computational approaches to study
+                    material properties and their potential
+                    technological applications.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Developing foundational knowledge of machine
+                    learning and exploring its applications
+                    in engineering and materials research.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Research Journey -->
+    <section id="journey">
+
+        <h2 class="section-title">Research Journey</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>DFT-Based Research</h3>
+
+                <p>
+                    Currently working on the preparation of a
+                    research paper related to Density Functional
+                    Theory (DFT).
+                </p>
+
+                <span class="tag">Paper in Preparation</span>
+            </div>
+
+            <div class="card">
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Currently building foundational knowledge
+                    and exploring possible research directions
+                    in machine learning.
+                </p>
+
+                <span class="tag">Learning Stage</span>
+            </div>
+
+            <div class="card">
+                <h3>Future Goals</h3>
+
+                <p>
+                    Aspiring to pursue higher studies abroad
+                    and contribute to scientific research
+                    and technological development.
+                </p>
+
+                <span class="tag">Future Aspirations</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <h2 class="section-title">Academic Projects</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>DC-to-DC Buck Converter</h3>
+
+                <p>
+                    A team-based project focused on the design
+                    and implementation of a DC-to-DC buck
+                    converter.
+                </p>
+
+                <span class="tag">Power Electronics</span>
+            </div>
+
+            <div class="card">
+                <h3>Solar Battery System</h3>
+
+                <p>
+                    A team project involving a solar panel
+                    and battery-based system for electrical
+                    energy utilization.
+                </p>
+
+                <span class="tag">Renewable Energy</span>
+            </div>
+
+            <div class="card">
+                <h3>Residential House Wiring</h3>
+
+                <p>
+                    A team-based electrical design project
+                    involving residential wiring and
+                    electrical installation planning.
+                </p>
+
+                <span class="tag">Electrical Design</span>
+            </div>
+
+            <div class="card">
+                <h3>Arduino-Based Obstacle Detection
+                    & Vacuum Cleaner Robot</h3>
+
+                <p>
+                    A team project involving an Arduino-controlled
+                    robotic vehicle that detects obstacles and
+                    performs vacuum-cleaning functionality.
+                </p>
+
+                <span class="tag">Arduino & Robotics</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Achievement Section -->
+    <section id="achievements">
+
+        <h2 class="section-title">Achievements & Memberships</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>IEEE Student Member</h3>
+
+                <p>
+                    Official Student Member of the Institute
+                    of Electrical and Electronics Engineers (IEEE).
+                </p>
+
+                <span class="tag">Professional Membership</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">Get In Touch</h2>
+
+        <p>
+            I am always interested in learning, research,
+            collaboration, and new opportunities.
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:your-email@example.com">
+                your-email@example.com
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/"
+               target="_blank">
+                Visit LinkedIn
+            </a>
+        </p>
+
+        <p>
+            GitHub:
+            <a href="https://github.com/"
+               target="_blank">
+                Visit GitHub
+            </a>
+        </p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Your Name | Personal Academic Portfolio
+        </p>
+
+        <p>
+            Designed with passion for learning and research.
+        </p>
+
+    </footer>
+
+</body>
+</html>
